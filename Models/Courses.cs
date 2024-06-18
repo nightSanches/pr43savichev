@@ -4,14 +4,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using static pr43savichev.Classes.RelayCommand;
-using System.Text.RegularExpressions;
-using System.Windows;
 using Schema = System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
 
 namespace pr43savichev.Models
 {
-    public class Students : Notification
+    public class Courses : Notification
     {
         public int Id { get; set; }
 
@@ -27,50 +24,39 @@ namespace pr43savichev.Models
             }
         }
 
-        private string surname;
+        private string otdelenye;
 
-        public string Surname
+        public string Otdelenye
         {
-            get { return surname; }
+            get { return otdelenye; }
             set
             {
-                surname = value;
-                OnPropertyChanged("Surname");
+                otdelenye = value;
+                OnPropertyChanged("Otdelenye");
             }
         }
 
-        private string educationYear;
+        private string budgetMest;
 
-        public string EducationYear
+        public string BudgetMest
         {
-            get { return educationYear; }
+            get { return budgetMest; }
             set
             {
-                educationYear = value;
-                OnPropertyChanged("EducationYear");
+                budgetMest = value;
+                OnPropertyChanged("BudgetMest");
             }
         }
 
-        private string group;
+        private string plantyhMest;
 
-        public string Group
+        public string PlantyhMest
         {
-            get { return group; }
+            get { return plantyhMest; }
             set
             {
-                group = value;
-                OnPropertyChanged("Group");
-            }
-        }
-
-        private int courseId;
-        public int CourseId
-        {
-            get { return courseId; }
-            set
-            {
-                courseId = value;
-                OnPropertyChanged("CourseId");
+                plantyhMest = value;
+                OnPropertyChanged("PlantyhMest");
             }
         }
 
@@ -107,7 +93,7 @@ namespace pr43savichev.Models
                 return new RealyCommand(obj =>
                 {
                     IsEnable = !IsEnable;
-                    if (!IsEnable) (MainWindow.init.DataContext as ViewModel.VM_Pages).students.studentsContext.SaveChanges();
+                    if (!IsEnable) (MainWindow.init.DataContext as ViewModel.VM_Pages).courses.coursesContext.SaveChanges();
                 });
             }
         }
@@ -119,19 +105,10 @@ namespace pr43savichev.Models
             {
                 return new RealyCommand(obj =>
                 {
-                        (MainWindow.init.DataContext as ViewModel.VM_Pages).students.Students.Remove(this);
-                        (MainWindow.init.DataContext as ViewModel.VM_Pages).students.studentsContext.Remove(this);
-                        (MainWindow.init.DataContext as ViewModel.VM_Pages).students.studentsContext.SaveChanges();
+                    (MainWindow.init.DataContext as ViewModel.VM_Pages).courses.Courses.Remove(this);
+                    (MainWindow.init.DataContext as ViewModel.VM_Pages).courses.coursesContext.Remove(this);
+                    (MainWindow.init.DataContext as ViewModel.VM_Pages).courses.coursesContext.SaveChanges();
                 });
-            }
-        }
-
-        [Schema.NotMapped]
-        public ObservableCollection<Courses> Courses
-        {
-            get
-            {
-                return new ObservableCollection<Courses>(new Context.CoursesContext().Courses);
             }
         }
     }

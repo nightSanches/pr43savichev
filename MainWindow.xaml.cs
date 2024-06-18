@@ -20,9 +20,13 @@ namespace pr43savichev
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow init;
+
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
+            DataContext = new ViewModel.VM_Pages();
         }
     }
 }
