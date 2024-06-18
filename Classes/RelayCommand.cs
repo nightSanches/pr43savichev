@@ -14,6 +14,7 @@ namespace pr43savichev.Classes
 
             public RealyCommand(Action<object> execute, Func<object, bool> canExecute = null)
             {
+                this.execute = execute;
                 this.canExecute = canExecute;
             }
 
