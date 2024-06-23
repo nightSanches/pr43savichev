@@ -3,7 +3,7 @@ using pr43savichev.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static pr43savichev.Classes.RelayCommand;
+using static pr43savichev.Classes.RealyCommand;
 
 namespace pr43savichev.ViewModel
 {

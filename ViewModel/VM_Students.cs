@@ -4,8 +4,9 @@ using pr43savichev.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
-using static pr43savichev.Classes.RelayCommand;
+using static pr43savichev.Classes.RealyCommand;
 
 namespace pr43savichev.ViewModel
 {
@@ -15,9 +16,9 @@ namespace pr43savichev.ViewModel
 
         public ObservableCollection<Students> Students { get; set; }
 
-        public VM_Students() => Students = new ObservableCollection<Students>();
+        public VM_Students() => Students = new ObservableCollection<Students>(studentsContext.Students.OrderBy(x => x.Id));
 
-        public RealyCommand OnAddCourses
+        public RealyCommand OnAddStudents
         {
             get
             {

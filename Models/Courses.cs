@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using static pr43savichev.Classes.RelayCommand;
+using static pr43savichev.Classes.RealyCommand;
 using Schema = System.ComponentModel.DataAnnotations.Schema;
 
 namespace pr43savichev.Models

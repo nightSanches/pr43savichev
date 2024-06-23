@@ -15,6 +15,7 @@ namespace pr43savichev.Context
             Students.Load();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseMySql(Classes.Config.Config.connection, Classes.Config.Config.version);
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => 
+            optionsBuilder.UseMySql(Classes.Config.Config.connection, Classes.Config.Config.version);
     }
 }
